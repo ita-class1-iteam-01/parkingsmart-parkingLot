@@ -5,4 +5,4 @@ if not "%pid%" == "" (
   rem echo Server is not running.
 )
 
-java -jar d:\deploy\todo-0.0.1-SNAPSHOTT.jar
+start /b java -jar d:\deploy\parkingsmart-parkinglot-0.0.1-SNAPSHOT.jar
