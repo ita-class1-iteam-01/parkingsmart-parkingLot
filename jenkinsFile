@@ -3,30 +3,32 @@ pipeline {
   environment {
     JENKINS_NODE_COOKIE = "donotkillme"
   }
-  stages(clone) {
-    steps{
-      echo 'clone begin, clone the code from dev branch'
-      git branch:'dev',url:'https://github.com/carrymaniac/parkingsmart-parkinglot'
-      echo 'clone end'
+  stages{
+    stage(clone){
+       steps{
+        echo 'clone begin, clone the code from dev branch'
+        git branch:'dev',url:'https://github.com/carrymaniac/parkingsmart-parkinglot'
+        echo 'clone end'
+      }
     }
-  }
-  stage('test') {
-    steps {
-      echo 'test'
-      bat './gradlew test'
-    }  
-  }
-  stage('build') {
-    steps {
-      echo 'build'
-      bat './gradlew build'
+    stage('test') {
+      steps {
+        echo 'test'
+        bat './gradlew test'
+      }  
     }
-  }
-  stage('deploy') {
-    steps {
-      echo 'deploy'
-      bat "copy build\\libs\\*.jar d:\\deploy\\"
-      bat "run.bat"
+    stage('build') {
+      steps {
+        echo 'build'
+        bat './gradlew build'
+      }
+    }
+    stage('deploy') {
+      steps {
+        echo 'deploy'
+        bat "copy build\\libs\\*.jar d:\\deploy\\"
+        bat "run.bat"
+      }
     }
   }
 }
