@@ -9,8 +9,7 @@ pipeline {
         git branch:'dev',url:'https://github.com/carrymaniac/parkingsmart-parkinglot'
         echo 'clone end'
       }
-    }
-    stage('test') {
+          stage('test') {
       steps {
         echo 'test'
         bat './gradlew test'
@@ -28,5 +27,6 @@ pipeline {
         bat "copy build\\libs\\*.jar d:\\deploy\\"
         bat "run.bat"
       }
+    }
     }
   }
