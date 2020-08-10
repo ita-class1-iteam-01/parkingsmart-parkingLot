@@ -3,14 +3,16 @@
  */
 package com.oocl.parkingsmart;
 
-
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class AppTest {
-    @Test public void testAppHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+@SpringBootTest
+public class ParkingSmartParkinglotApplicationTests {
+
+    @Test
+    void contextLoads() {
     }
+
 }
